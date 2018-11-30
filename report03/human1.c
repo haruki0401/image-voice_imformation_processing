@@ -13,6 +13,7 @@ int main(void){
 
         //back.ppmの読み込み
         load_color_image(0,"back.ppm");
+
         printf("画像データ群に対して処理を開始します。\n");
 
         for(int i=1; i<=200; i++) {
