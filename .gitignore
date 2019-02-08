@@ -1,0 +1,7 @@
+#ppm file
+*.ppm
+report.txt
+
+
+*.o
+*.gch
