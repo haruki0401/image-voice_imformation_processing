@@ -3,12 +3,12 @@
 
 int main(void)
 {
-    double param;  /* À”’l—p•Ï” */
+    double param;  /* å®Ÿæ•°å€¤ç”¨å¤‰æ•° */
 
-    printf("input parameter(0-1):");   /* “ü—Í‚ğ‘£‚·•\¦ */
-    scanf("%lf",&param);               /* ƒp[ƒZƒ“ƒgEƒGƒ‹EƒGƒt‚Ì‘® */
-                                       /* & ‚ğ–Y‚ê‚È‚¢‚æ‚¤‚É */ 
-    printf("parameter = %f",param);    /* ³‚µ‚­“ü—Í‚³‚ê‚½‚©Šm”F */
+    printf("input parameter(0-1):");   /* å…¥åŠ›ã‚’ä¿ƒã™è¡¨ç¤º */
+    scanf("%lf",&param);               /* ãƒ‘ãƒ¼ã‚»ãƒ³ãƒˆãƒ»ã‚¨ãƒ«ãƒ»ã‚¨ãƒ•ã®æ›¸å¼ */
+                                       /* & ã‚’å¿˜ã‚Œãªã„ã‚ˆã†ã« */ 
+    printf("parameter = %f",param);    /* æ­£ã—ãå…¥åŠ›ã•ã‚ŒãŸã‹ç¢ºèª */
 
     return 0;
 }

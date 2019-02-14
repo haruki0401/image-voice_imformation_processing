@@ -1,7 +1,13 @@
 #ppm file
 *.ppm
+*.pgm
 report.txt
 
+*.jpg
+*.pdf
+*.wav
 
+*.exe
+*.out
 *.o
 *.gch

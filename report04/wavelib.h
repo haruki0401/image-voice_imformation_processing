@@ -1,43 +1,43 @@
-/* wave ƒtƒ@ƒCƒ‹—pŠÈˆÕƒwƒbƒ_ƒtƒ@ƒCƒ‹ wavelib.h */
+/* wave ãƒ•ã‚¡ã‚¤ãƒ«ç”¨ç°¡æ˜“ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ« wavelib.h */
 #include<stdlib.h>
 #include<string.h>
 
-/* Œ^‚Ì’è‹` */
-/* RIFFƒ`ƒƒƒ“ƒN */
+/* å‹ã®å®šç¾© */
+/* RIFFãƒãƒ£ãƒ³ã‚¯ */
 struct RIFF {
-    char ID[5];         /* RIFFƒ`ƒƒƒ“ƒNID("RIFF")   */
-    int SIZE;           /* RIFFƒ`ƒƒƒ“ƒNƒTƒCƒY[byte] */
-    char TYPE[5];       /* RIFF‚Ìí—Ş("WAVE")       */
+    char ID[5];         /* RIFFãƒãƒ£ãƒ³ã‚¯ID("RIFF")   */
+    int SIZE;           /* RIFFãƒãƒ£ãƒ³ã‚¯ã‚µã‚¤ã‚º[byte] */
+    char TYPE[5];       /* RIFFã®ç¨®é¡("WAVE")       */
 };
-/* fmtƒ`ƒƒƒ“ƒN */
+/* fmtãƒãƒ£ãƒ³ã‚¯ */
 struct fmt {
-    char ID[5];         /* fmtƒ`ƒƒƒ“ƒNID("fmt ")    */
-    int SIZE;           /* fmtƒ`ƒƒƒ“ƒNƒTƒCƒY[byte]  */
-    int TYPE;           /* ƒtƒH[ƒ}ƒbƒgƒ^ƒCƒv       */
-    int Channel;        /* ƒ`ƒƒƒ“ƒlƒ‹”             */
-    int SamplesPerSec;  /* ƒTƒ“ƒvƒŠƒ“ƒOƒŒ[ƒg[Hz]   */
-    int BytesPerSec;    /* ƒf[ƒ^‘¬“x[byte/sec]     */
-    int BlockSize;      /* ƒuƒƒbƒNƒTƒCƒY           */
+    char ID[5];         /* fmtãƒãƒ£ãƒ³ã‚¯ID("fmt ")    */
+    int SIZE;           /* fmtãƒãƒ£ãƒ³ã‚¯ã‚µã‚¤ã‚º[byte]  */
+    int TYPE;           /* ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚¿ã‚¤ãƒ—       */
+    int Channel;        /* ãƒãƒ£ãƒ³ãƒãƒ«æ•°             */
+    int SamplesPerSec;  /* ã‚µãƒ³ãƒ—ãƒªãƒ³ã‚°ãƒ¬ãƒ¼ãƒˆ[Hz]   */
+    int BytesPerSec;    /* ãƒ‡ãƒ¼ã‚¿é€Ÿåº¦[byte/sec]     */
+    int BlockSize;      /* ãƒ–ãƒ­ãƒƒã‚¯ã‚µã‚¤ã‚º           */
                         /* [byte/sample x channel]  */
-    int BitsPerSample;  /* ƒTƒ“ƒvƒ‹‚ ‚½‚è‚Ìƒrƒbƒg” */
+    int BitsPerSample;  /* ã‚µãƒ³ãƒ—ãƒ«ã‚ãŸã‚Šã®ãƒ“ãƒƒãƒˆæ•° */
                         /* [bit/sample]             */
 };
-/* dataƒ`ƒƒƒ“ƒN */
+/* dataãƒãƒ£ãƒ³ã‚¯ */
 struct data {
-    char ID[5];          /* dataƒ`ƒƒƒ“ƒNID("data")   */
-    int size_of_sounds;  /* dataƒ`ƒƒƒ“ƒNƒTƒCƒY[byte] */
-    unsigned char *sounds; /* ”gŒ`ƒf[ƒ^‚Ö‚Ìƒ|ƒCƒ“ƒ^ */
+    char ID[5];          /* dataãƒãƒ£ãƒ³ã‚¯ID("data")   */
+    int size_of_sounds;  /* dataãƒãƒ£ãƒ³ã‚¯ã‚µã‚¤ã‚º[byte] */
+    unsigned char *sounds; /* æ³¢å½¢ãƒ‡ãƒ¼ã‚¿ã¸ã®ãƒã‚¤ãƒ³ã‚¿ */
 };
 
 
-/* ŠÖ”‚Ìƒvƒƒgƒ^ƒCƒvéŒ¾ */
-/* WAVEƒf[ƒ^‚Ìƒtƒ@ƒCƒ‹“ü—Í */
+/* é–¢æ•°ã®ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€ */
+/* WAVEãƒ‡ãƒ¼ã‚¿ã®ãƒ•ã‚¡ã‚¤ãƒ«å…¥åŠ› */
 void load_wave_data( struct RIFF *RIFF1, struct fmt *fmt1,
                      struct data *data1, char name[] );
-/* WAVEƒf[ƒ^‚Ìƒtƒ@ƒCƒ‹o—Í */
+/* WAVEãƒ‡ãƒ¼ã‚¿ã®ãƒ•ã‚¡ã‚¤ãƒ«å‡ºåŠ› */
 void save_wave_data( struct RIFF *RIFF1, struct fmt *fmt1,
                      struct data *data1, char name[] );
-/* ˆÈ‰º‚Í load/save_wave_data “à‚Å—˜—p‚³‚ê‚Ä‚¢‚éŠÖ” */
+/* ä»¥ä¸‹ã¯ load/save_wave_data å†…ã§åˆ©ç”¨ã•ã‚Œã¦ã„ã‚‹é–¢æ•° */
 void read_char( FILE *fp, int n, char c[] );
 void read_int( FILE *fp, int n, int *number );
 void write_char( FILE *fp, int n, char c[] );
@@ -46,25 +46,25 @@ void error_process( char message[] );
 void error_process2( char c1[], char c2[] );
 
 
-/* ˆÈ‰º‚ÍŠÖ”‚Ì–{‘Ì */
+/* ä»¥ä¸‹ã¯é–¢æ•°ã®æœ¬ä½“ */
 void load_wave_data( struct RIFF *RIFF1, struct fmt *fmt1, 
                      struct data *data1, char name[] )
-/* ƒtƒ@ƒCƒ‹‚©‚çWAVEƒf[ƒ^‚ğ“Ç‚İ‚ŞD */
-/* name[] ‚ª "" ‚È‚çƒtƒ@ƒCƒ‹–¼‚ğ“ü—ÍD*/
+/* ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰WAVEãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€ï¼ */
+/* name[] ãŒ "" ãªã‚‰ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å…¥åŠ›ï¼*/
 {
-    char fname[256];            /* ƒtƒ@ƒCƒ‹–¼—p‚Ì•¶š”z—ñ */
-    FILE *fp;                   /* ƒtƒ@ƒCƒ‹ƒ|ƒCƒ“ƒ^       */
-    unsigned char buffer[256];  /* •¶š—ñ—pì‹Æ•Ï”       */
-    int i;                      /* ì‹Æ•Ï”               */
+    char fname[256];            /* ãƒ•ã‚¡ã‚¤ãƒ«åç”¨ã®æ–‡å­—é…åˆ— */
+    FILE *fp;                   /* ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚¤ãƒ³ã‚¿       */
+    unsigned char buffer[256];  /* æ–‡å­—åˆ—ç”¨ä½œæ¥­å¤‰æ•°       */
+    int i;                      /* ä½œæ¥­å¤‰æ•°               */
 
-    /* “ü—Íƒtƒ@ƒCƒ‹‚ÌƒI[ƒvƒ“ */
+    /* å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚ªãƒ¼ãƒ—ãƒ³ */
     if ( name[0]=='\0' ){
-        printf("“Ç‚İ‚Ş WAVEƒtƒ@ƒCƒ‹‚Ì–¼‘O (Šg’£q‚Íwav) : ");
+        printf("èª­ã¿è¾¼ã‚€ WAVEãƒ•ã‚¡ã‚¤ãƒ«ã®åå‰ (æ‹¡å¼µå­ã¯wav) : ");
         scanf("%s",fname);
     } else strcpy( fname, name );
     if ( (fp = fopen( fname, "rb" ))==NULL )
-        error_process("ƒtƒ@ƒCƒ‹‚ªƒI[ƒvƒ“‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½D");
-    /* ƒf[ƒ^‚Ì“Ç‚İ‚İ */
+        error_process("ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ªãƒ¼ãƒ—ãƒ³ã§ãã¾ã›ã‚“ã§ã—ãŸï¼");
+    /* ãƒ‡ãƒ¼ã‚¿ã®èª­ã¿è¾¼ã¿ */
     /* ========== RIFF 1 ========== */
     read_char( fp, 4, RIFF1->ID );             /* ID            */
       error_process2( RIFF1->ID, "RIFF" );     /* Error Process */
@@ -87,7 +87,7 @@ void load_wave_data( struct RIFF *RIFF1, struct fmt *fmt1,
     read_int( fp, 4, &data1->size_of_sounds ); /* SIZE          */
     data1->sounds = (unsigned char *)malloc( data1->size_of_sounds );
     if ( data1->sounds == NULL ){
-        printf("ƒƒ‚ƒŠ‚ªŠm•Û‚Å‚«‚Ü‚¹‚ñDƒvƒƒOƒ‰ƒ€‚ğI—¹‚µ‚Ü‚·D\n");
+        printf("ãƒ¡ãƒ¢ãƒªãŒç¢ºä¿ã§ãã¾ã›ã‚“ï¼ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’çµ‚äº†ã—ã¾ã™ï¼\n");
         exit(1);
     } else {
         for(i=0;i<data1->size_of_sounds;i++){
@@ -100,22 +100,22 @@ void load_wave_data( struct RIFF *RIFF1, struct fmt *fmt1,
 
 void save_wave_data( struct RIFF *RIFF1, struct fmt *fmt1,
                      struct data *data1, char name[] )
-/* WAVEƒf[ƒ^‚ğƒtƒ@ƒCƒ‹‚É‘‚«‚ŞD   */
-/* name[] ‚ª "" ‚È‚çƒtƒ@ƒCƒ‹–¼‚ğ“ü—ÍD*/
+/* WAVEãƒ‡ãƒ¼ã‚¿ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã‚€ï¼   */
+/* name[] ãŒ "" ãªã‚‰ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å…¥åŠ›ï¼*/
 {
-    char fname[256];            /* ƒtƒ@ƒCƒ‹–¼—p‚Ì•¶š”z—ñ */
-    FILE *fp;                   /* ƒtƒ@ƒCƒ‹ƒ|ƒCƒ“ƒ^       */
-    int i,number;               /* ì‹Æ•Ï”               */
-    unsigned char value;        /* ì‹Æ•Ï”               */
+    char fname[256];            /* ãƒ•ã‚¡ã‚¤ãƒ«åç”¨ã®æ–‡å­—é…åˆ— */
+    FILE *fp;                   /* ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚¤ãƒ³ã‚¿       */
+    int i,number;               /* ä½œæ¥­å¤‰æ•°               */
+    unsigned char value;        /* ä½œæ¥­å¤‰æ•°               */
 
-    /* o—Íƒtƒ@ƒCƒ‹‚ÌƒI[ƒvƒ“ */
+    /* å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚ªãƒ¼ãƒ—ãƒ³ */
     if ( name[0]=='\0' ){
-        printf("o—Í‚·‚é WAVEƒtƒ@ƒCƒ‹‚Ì–¼‘O (Šg’£q‚Íwav) : ");
+        printf("å‡ºåŠ›ã™ã‚‹ WAVEãƒ•ã‚¡ã‚¤ãƒ«ã®åå‰ (æ‹¡å¼µå­ã¯wav) : ");
         scanf("%s",fname);
     } else strcpy( fname, name );
     if ( (fp = fopen( fname, "wb" ))==NULL )
-        error_process("ƒtƒ@ƒCƒ‹‚ªƒI[ƒvƒ“‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½D");
-    /* ƒf[ƒ^‚Ì‘‚«‚İ */
+        error_process("ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ªãƒ¼ãƒ—ãƒ³ã§ãã¾ã›ã‚“ã§ã—ãŸï¼");
+    /* ãƒ‡ãƒ¼ã‚¿ã®æ›¸ãè¾¼ã¿ */
     /* ========== RIFF 1 ========== */
     write_char( fp, 4, RIFF1->ID );    /* ID   */
     write_int(  fp, 4, RIFF1->SIZE );  /* SIZE */
@@ -140,20 +140,20 @@ void save_wave_data( struct RIFF *RIFF1, struct fmt *fmt1,
 
 
 void read_char( FILE *fp, int n, char c[] )
-/* nƒoƒCƒg‚Ì•¶š—ñ‚ğƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İ‚Ş */
+/* nãƒã‚¤ãƒˆã®æ–‡å­—åˆ—ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿è¾¼ã‚€ */
 {
     int i;
 
     for(i=0;i<n;i++){
         c[i] = fgetc( fp );
     }
-    c[n]='\0';  /* •¶š—ñ‚ÌÅŒã‚ğ•\‚·NULL‹L† */
+    c[n]='\0';  /* æ–‡å­—åˆ—ã®æœ€å¾Œã‚’è¡¨ã™NULLè¨˜å· */
 }
 
 
 void read_int( FILE *fp, int n, int *number )
-/* nƒoƒCƒg‚Ìint‚ğƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İ‚Ş */
-/* IntelƒoƒCƒgƒI[ƒ_ibyte‹t‡j      */
+/* nãƒã‚¤ãƒˆã®intã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿è¾¼ã‚€ */
+/* Intelãƒã‚¤ãƒˆã‚ªãƒ¼ãƒ€ï¼ˆbyteé€†é †ï¼‰      */
 {
     int i,j,num;
 
@@ -169,7 +169,7 @@ void read_int( FILE *fp, int n, int *number )
 
 
 void write_char( FILE *fp, int n, char c[] )
-/* nƒoƒCƒg‚Ì•¶š—ñ‚ğƒtƒ@ƒCƒ‹‚Ö‘‚«‚Ş */
+/* nãƒã‚¤ãƒˆã®æ–‡å­—åˆ—ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã¸æ›¸ãè¾¼ã‚€ */
 {
     int i;
 
@@ -180,7 +180,7 @@ void write_char( FILE *fp, int n, char c[] )
 
 
 void write_int( FILE *fp, int n, int number )
-/* nƒoƒCƒg‚Ånumber‚Ìƒf[ƒ^‚ğƒtƒ@ƒCƒ‹‚Ö‘‚«‚Şi‹t‡j */
+/* nãƒã‚¤ãƒˆã§numberã®ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã¸æ›¸ãè¾¼ã‚€ï¼ˆé€†é †ï¼‰ */
 {
     int i;
 
@@ -192,25 +192,25 @@ void write_int( FILE *fp, int n, int number )
 
 
 void error_process( char message[] )
-/* ƒGƒ‰[ˆ— */
+/* ã‚¨ãƒ©ãƒ¼å‡¦ç† */
 {
     if ( message[0]=='\0' )
-        printf("—\‘z‚µ‚È‚¢ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½D\n");
+        printf("äºˆæƒ³ã—ãªã„ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸï¼\n");
     else
         printf("%s\n",message);
-    printf("ƒvƒƒOƒ‰ƒ€‚ğI—¹‚µ‚Ü‚·D\n");
-    exit(1);  /* ˆÙíI—¹ */
+    printf("ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’çµ‚äº†ã—ã¾ã™ï¼\n");
+    exit(1);  /* ç•°å¸¸çµ‚äº† */
 }
 
 
 void error_process2( char c1[], char c2[] )
-/* ƒGƒ‰[ˆ—‚Q */
-/* c1 ‚Æ c2 ‚ªˆÙ‚È‚Á‚Ä‚¢‚½‚ç‹­§I—¹‚·‚é */
+/* ã‚¨ãƒ©ãƒ¼å‡¦ç†ï¼’ */
+/* c1 ã¨ c2 ãŒç•°ãªã£ã¦ã„ãŸã‚‰å¼·åˆ¶çµ‚äº†ã™ã‚‹ */
 {
     if ( strcmp( c1, c2 ) != 0 ){
-        printf("ID‚ªˆÙ‚È‚éƒtƒ@ƒCƒ‹‚Å‚·D\n");
-        printf("ƒvƒƒOƒ‰ƒ€‚ğˆÙíI—¹‚µ‚Ü‚·D\n");
-        exit(1);  /* ˆÙíI—¹ */
+        printf("IDãŒç•°ãªã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã§ã™ï¼\n");
+        printf("ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’ç•°å¸¸çµ‚äº†ã—ã¾ã™ï¼\n");
+        exit(1);  /* ç•°å¸¸çµ‚äº† */
     }
 }
 
