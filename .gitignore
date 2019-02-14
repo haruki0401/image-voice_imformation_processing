@@ -1,7 +1,7 @@
 #ppm file
 *.ppm
 *.pgm
-report.txt
+*.txt
 
 *.jpg
 *.pdf
